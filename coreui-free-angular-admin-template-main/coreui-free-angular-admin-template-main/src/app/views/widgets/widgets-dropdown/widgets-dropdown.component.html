@@ -1,0 +1,201 @@
+<c-row class="g-4">
+  <c-col sm="6" xl="3">
+    <c-widget-stat-a 
+      *ngIf="!isOpen"
+      color="success"
+      [title]="'Water Valve'">
+      <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
+        <span>Open</span>
+        <span class="fw-normal" style="font-size: 15px;"></span>
+      </ng-template>
+      <ng-template cTemplateId="widgetActionTemplate">
+        <img class="hide-bg" src="../../../../assets/images/powerButton.PNG" (click)="openSolenoid()">
+      </ng-template>
+    </c-widget-stat-a>
+    <c-widget-stat-a
+      *ngIf="isOpen"
+      color="danger"
+      [title]="'Water Valve'">
+      <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
+        <span>Close</span>
+        <span class="fw-normal" style="font-size: 15px;"></span>
+      </ng-template>
+      <ng-template cTemplateId="widgetActionTemplate">
+        <img class="hide-bg" src="../../../../assets/images/powerButton.PNG" (click)="closeSolenoid()">
+      </ng-template>
+    </c-widget-stat-a>
+  </c-col>
+  <c-col sm="6" xl="3">
+    <c-widget-stat-a
+      [title]="'Water Metter'"
+      color="info"
+    >
+      <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
+        <span>6.200 </span>
+        <span class="fw-normal" style="font-size: 12px;">
+          <svg cIcon name="cilSpeedometer" size="xl"></svg>
+        </span>
+      </ng-template>
+      <ng-template cTemplateId="widgetActionTemplate">
+        <c-dropdown alignment="end" variant="btn-group">
+          <button [caret]="false" cButton cDropdownToggle class="p-0 text-white" color="transparent" aria-label="Open dropdown">
+            <svg cIcon name="cilOptions"></svg>
+          </button>
+          <ul cDropdownMenu>
+            <!-- TODO add checkbox to select and display data in big graph-->
+            <!-- TODO onClick display data in small graph-->
+            <li><a [routerLink]="[]" cDropdownItem>Week</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Month</a></li>
+          </ul>
+        </c-dropdown>
+      </ng-template>
+      <ng-template cTemplateId="widgetChartTemplate">
+        <c-chart [data]="data[1]" [options]="options[1]" class="mt-3 mx-3" height="70" type="line"></c-chart>
+      </ng-template>
+    </c-widget-stat-a>
+  </c-col>
+  <c-col sm="6" xl="3">
+    <c-widget-stat-a
+      [title]="'Weather'"
+      color="warning"
+      *ngIf="isSunny">
+      <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
+        <span>2.49 </span>
+        <span class="fw-normal" style="font-size: 12px;">
+          <svg cIcon name="cilSun" size="xl"></svg>
+        </span>
+      </ng-template>
+      <ng-template cTemplateId="widgetActionTemplate">
+        <c-dropdown alignment="end" variant="btn-group">
+          <button [caret]="false" cButton cDropdownToggle class="p-0 text-white" color="transparent" aria-label="Open dropdown">
+            <svg cIcon name="cilOptions"></svg>
+          </button>
+          <ul cDropdownMenu>
+            <!-- TODO add checkbox to select and display data in big graph-->
+            <!-- TODO onClick display data in small graph-->
+            <li><a [routerLink]="[]" cDropdownItem>Temperature</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Humidity</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Sunlight</a></li>
+          </ul>
+        </c-dropdown>
+      </ng-template>
+      <ng-template cTemplateId="widgetChartTemplate">
+        <c-chart [data]="data[2]" [options]="options[2]" class="mt-3" height="70" type="line"></c-chart>
+      </ng-template>
+    </c-widget-stat-a>
+    <c-widget-stat-a
+      [title]="'Weather'"
+      color="secondary"
+      *ngIf="isNight">
+      <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
+        <span>2.49 </span>
+        <span class="fw-normal" style="font-size: 12px;">
+          <svg cIcon name="cilMoon" size="xl"></svg>
+        </span>
+      </ng-template>
+      <ng-template cTemplateId="widgetActionTemplate">
+        <c-dropdown alignment="end" variant="btn-group">
+          <button [caret]="false" cButton cDropdownToggle class="p-0 text-white" color="transparent" aria-label="Open dropdown">
+            <svg cIcon name="cilOptions"></svg>
+          </button>
+          <ul cDropdownMenu>
+            <!-- TODO add checkbox to select and display data in big graph-->
+            <!-- TODO onClick display data in small graph-->
+            <li><a [routerLink]="[]" cDropdownItem>Temperature</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Humidity</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Sunlightt</a></li>
+          </ul>
+        </c-dropdown>
+      </ng-template>
+      <ng-template cTemplateId="widgetChartTemplate">
+        <c-chart [data]="data[2]" [options]="options[2]" class="mt-3" height="70" type="line"></c-chart>
+      </ng-template>
+    </c-widget-stat-a>
+    <c-widget-stat-a
+      [title]="'Weather'"
+      color="secondary"
+      *ngIf="isCloudy">
+      <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
+        <span>2.49 </span>
+        <span class="fw-normal" style="font-size: 12px;">
+          <svg cIcon name="cilCloudy" size="xl"></svg>
+        </span>
+      </ng-template>
+      <ng-template cTemplateId="widgetActionTemplate">
+        <c-dropdown alignment="end" variant="btn-group">
+          <button [caret]="false" cButton cDropdownToggle class="p-0 text-white" color="transparent" aria-label="Open dropdown">
+            <svg cIcon name="cilOptions"></svg>
+          </button>
+          <ul cDropdownMenu>
+            <!-- TODO add checkbox to select and display data in big graph-->
+            <!-- TODO onClick display data in small graph-->
+            <li><a [routerLink]="[]" cDropdownItem>Temperature</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Humidity</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Sunlight</a></li>
+          </ul>
+        </c-dropdown>
+      </ng-template>
+      <ng-template cTemplateId="widgetChartTemplate">
+        <c-chart [data]="data[2]" [options]="options[2]" class="mt-3" height="70" type="line"></c-chart>
+      </ng-template>
+    </c-widget-stat-a>
+    <c-widget-stat-a
+      [title]="'Weather'"
+      color="primary"
+      *ngIf="isRaining">
+      <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
+        <span>2.49 </span>
+        <span class="fw-normal" style="font-size: 12px;">
+          <svg cIcon name="cilRain" size="xl"></svg>
+        </span>
+      </ng-template>
+      <ng-template cTemplateId="widgetActionTemplate">
+        <c-dropdown alignment="end" variant="btn-group">
+          <button [caret]="false" cButton cDropdownToggle class="p-0 text-white" color="transparent" aria-label="Open dropdown">
+            <svg cIcon name="cilOptions"></svg>
+          </button>
+          <ul cDropdownMenu>
+            <!-- TODO add checkbox to select and display data in big graph-->
+            <!-- TODO onClick display data in small graph-->
+            <li><a [routerLink]="[]" cDropdownItem>Temperature</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Humidity</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Sunlight</a></li>
+          </ul>
+        </c-dropdown>
+      </ng-template>
+      <ng-template cTemplateId="widgetChartTemplate">
+        <c-chart [data]="data[2]" [options]="options[2]" class="mt-3" height="70" type="line"></c-chart>
+      </ng-template>
+    </c-widget-stat-a>
+  </c-col>
+  <c-col sm="6" xl="3">
+    <c-widget-stat-a
+      [title]="'Garden Monitors'"
+      color="success">
+      <ng-template cTemplateId="widgetValueTemplate" ngPreserveWhitespaces>
+        <span>4 </span>
+        <span class="fw-normal" style="font-size: 12px;">
+          <svg cIcon name="cilFlower" size="xl"></svg>
+        </span>
+      </ng-template>
+      <ng-template cTemplateId="widgetActionTemplate">
+        <c-dropdown alignment="end" variant="btn-group">
+          <button [caret]="false" cButton cDropdownToggle class="p-0 text-white" color="transparent" aria-label="Open dropdown">
+            <svg cIcon name="cilOptions"></svg>
+          </button>
+          <ul cDropdownMenu>
+            <!-- TODO add checkbox to select and display data in big graph-->
+            <!-- TODO onClick display data in small graph-->
+            <li><a [routerLink]="[]" cDropdownItem>Soil Temperature 1</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Soil Humidity 1</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Soil Temperature 2</a></li>
+            <li><a [routerLink]="[]" cDropdownItem>Soil Humidity 2</a></li>
+          </ul>
+        </c-dropdown>
+      </ng-template>
+      <ng-template cTemplateId="widgetChartTemplate">
+        <c-chart [data]="data[3]" [options]="options[3]" class="mt-3 mx-3" height="70" type="bar"></c-chart>
+      </ng-template>
+    </c-widget-stat-a>
+  </c-col>
+</c-row>

@@ -1,6 +1,6 @@
 [
     {
-        "id": "fc55bde326a8f1c8",
+        "id": "4f793d28442c2b27",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,27 +8,27 @@
         "env": []
     },
     {
-        "id": "1e6e39015e1c56ba",
+        "id": "03f4ed9ed3ba89fe",
         "type": "rpi-gpio in",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Water Metter Sensor",
         "pin": "4",
         "intype": "tri",
         "debounce": "25",
         "read": true,
         "bcm": true,
-        "x": 270,
-        "y": 580,
+        "x": 110,
+        "y": 420,
         "wires": [
             [
-                "e6945798e98be9ca"
+                "1cf2659616d7f1a0"
             ]
         ]
     },
     {
-        "id": "a96a288f882b8198",
+        "id": "259102e47f70f943",
         "type": "debug",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
@@ -38,14 +38,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1100,
-        "y": 380,
+        "x": 880,
+        "y": 220,
         "wires": []
     },
     {
-        "id": "2961343724942a8a",
+        "id": "e2b3497949f7ba39",
         "type": "mqtt out",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "weather publisher",
         "topic": "weather",
         "qos": "",
@@ -56,24 +56,24 @@
         "correl": "",
         "expiry": "",
         "broker": "7e3c5637d1c2a2cc",
-        "x": 1210,
-        "y": 1000,
+        "x": 1230,
+        "y": 700,
         "wires": []
     },
     {
-        "id": "e147bad998b23a72",
+        "id": "ecbbf5a2e4656ee5",
         "type": "comment",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Water metter description",
         "info": "Reads the water metter sensor connected to GPIO and publish it to the MQTT broker.",
-        "x": 290,
-        "y": 540,
+        "x": 130,
+        "y": 380,
         "wires": []
     },
     {
-        "id": "8540e893fd4f8238",
+        "id": "ee78e6059a139b24",
         "type": "rpi-gpio out",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Water Valve Relay",
         "pin": "17",
         "set": true,
@@ -81,14 +81,14 @@
         "freq": "",
         "out": "out",
         "bcm": true,
-        "x": 1130,
-        "y": 300,
+        "x": 910,
+        "y": 140,
         "wires": []
     },
     {
-        "id": "6ba38b472edffe89",
+        "id": "6f26d8e5978a0282",
         "type": "inject",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Open Solenoid Test",
         "props": [
             {
@@ -102,98 +102,98 @@
         "topic": "",
         "payload": "1",
         "payloadType": "num",
-        "x": 850,
-        "y": 200,
+        "x": 630,
+        "y": 40,
         "wires": [
             [
-                "8540e893fd4f8238"
+                "ee78e6059a139b24"
             ]
         ]
     },
     {
-        "id": "8cd977656f2e2426",
+        "id": "a0bbd7f25699eb71",
         "type": "comment",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Solenoid workflow",
         "info": "\n\n\n\n\n\n\nSimulates a open/close to the realy for water valve.",
-        "x": 330,
-        "y": 280,
+        "x": 110,
+        "y": 120,
         "wires": []
     },
     {
-        "id": "8eef1b77e355d419",
+        "id": "7c718feb609ae53d",
         "type": "serial in",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Soil Moisture Sensor - virtual serial port",
         "serial": "911c1cbf0113d0ec",
-        "x": 330,
-        "y": 460,
+        "x": 170,
+        "y": 300,
         "wires": [
             [
-                "1925dd2278d93bfe"
+                "011aa4b3a5fbe966"
             ]
         ]
     },
     {
-        "id": "726d8cc40d8fbf14",
+        "id": "fe04a7baefb6ea8b",
         "type": "udp in",
-        "z": "fc55bde326a8f1c8",
-        "name": "Soil Moisture Sensor",
+        "z": "4f793d28442c2b27",
+        "name": "MCP3008 Transmission",
         "iface": "",
         "port": "12345",
         "ipv": "udp4",
         "multicast": "false",
         "group": "",
         "datatype": "utf8",
-        "x": 270,
-        "y": 1040,
+        "x": 180,
+        "y": 900,
         "wires": [
             [
-                "cd51a718ee12914a"
+                "b8e9081f7f0c0bc7"
             ]
         ]
     },
     {
-        "id": "4c89753750afdd8c",
+        "id": "cccc9ac714548d6d",
         "type": "comment",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Virtual serial port - Sensor data test",
         "info": "Handles\nIncomming sensor data readings via open virtual serial port.\nNeeds the virtual serial port open with socat in the Raspberry Pi.\nGet the serial device open by socat utility.\nSerial device will be in the form of /dev/pts/n, where n is a number.\nSocat will use two pts ports to act as two end points. One will be used by the program and the other by Nodered.",
-        "x": 320,
-        "y": 420,
+        "x": 160,
+        "y": 260,
         "wires": []
     },
     {
-        "id": "33b623e5c2417be2",
+        "id": "98edf2a81a71d15b",
         "type": "comment",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "UDP server description",
         "info": "Handles\nIncomming sensor data readings via an open UDP socket.",
-        "x": 220,
-        "y": 1000,
+        "x": 120,
+        "y": 860,
         "wires": []
     },
     {
-        "id": "4a1d612f143589c5",
+        "id": "b488a252d01a7e4e",
         "type": "http in",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Electric Solenoid - API",
         "url": "/toggle",
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 340,
-        "y": 320,
+        "x": 120,
+        "y": 160,
         "wires": [
             [
-                "e0f12c28c65445a7"
+                "37d0dff5f05a54b8"
             ]
         ]
     },
     {
-        "id": "e0f12c28c65445a7",
+        "id": "37d0dff5f05a54b8",
         "type": "function",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "toggle",
         "func": "if (msg.payload.solenoid=='open') {\n    msg.payload = 1\n    msg.statusCode = 200\n} else if (msg.payload.solenoid=='close') {\n    msg.payload = 0\n    msg.statusCode = 200\n} else {\n    msg.statusCode = 400\n}\nreturn msg;",
         "outputs": 1,
@@ -202,31 +202,31 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 320,
+        "x": 330,
+        "y": 160,
         "wires": [
             [
-                "36ada6c7050ca511",
-                "20ae0314e688266d",
-                "fb519efe438ee0cc"
+                "72ea204fcde50429",
+                "24950211da0ddd26",
+                "6ba536a074a76c8e"
             ]
         ]
     },
     {
-        "id": "36ada6c7050ca511",
+        "id": "72ea204fcde50429",
         "type": "http response",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "API response",
         "statusCode": "",
         "headers": {},
-        "x": 860,
-        "y": 380,
+        "x": 640,
+        "y": 220,
         "wires": []
     },
     {
-        "id": "20ae0314e688266d",
+        "id": "24950211da0ddd26",
         "type": "trigger",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Open solenoid",
         "op1": "1",
         "op2": "0",
@@ -240,19 +240,19 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 860,
-        "y": 300,
+        "x": 640,
+        "y": 140,
         "wires": [
             [
-                "a96a288f882b8198",
-                "8540e893fd4f8238"
+                "259102e47f70f943",
+                "ee78e6059a139b24"
             ]
         ]
     },
     {
-        "id": "fb519efe438ee0cc",
+        "id": "6ba536a074a76c8e",
         "type": "trigger",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Close solenoid",
         "op1": "0",
         "op2": "0",
@@ -266,48 +266,30 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 860,
-        "y": 340,
+        "x": 640,
+        "y": 180,
         "wires": [
             [
-                "a96a288f882b8198",
-                "8540e893fd4f8238"
+                "259102e47f70f943",
+                "ee78e6059a139b24"
             ]
         ]
     },
     {
-        "id": "c24b9bef4d3d27a2",
+        "id": "470b54f2ce951049",
         "type": "comment",
-        "z": "fc55bde326a8f1c8",
-        "name": "Sensor Group",
+        "z": "4f793d28442c2b27",
+        "name": "Analog Sensor Group",
         "info": "",
-        "x": 190,
-        "y": 960,
+        "x": 120,
+        "y": 820,
         "wires": []
     },
     {
-        "id": "09cc2eb72807536b",
-        "type": "rpi-gpio in",
-        "z": "fc55bde326a8f1c8",
-        "name": "Temperature Sensor",
-        "pin": "",
-        "intype": "tri",
-        "debounce": "25",
-        "read": false,
-        "bcm": true,
-        "x": 450,
-        "y": 820,
-        "wires": [
-            [
-                "e2209a3f8d82e934"
-            ]
-        ]
-    },
-    {
-        "id": "01b4cd72f07a0475",
+        "id": "e845c766571d488c",
         "type": "http request",
-        "z": "fc55bde326a8f1c8",
-        "name": "GET - weather",
+        "z": "4f793d28442c2b27",
+        "name": "GET weather request",
         "method": "GET",
         "ret": "obj",
         "paytoqs": "ignore",
@@ -319,19 +301,19 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 440,
-        "y": 880,
+        "x": 460,
+        "y": 700,
         "wires": [
             [
-                "6cf03064c287c514"
+                "bb2e983a3fef94e7"
             ]
         ]
     },
     {
-        "id": "357ae4beeb488fd3",
+        "id": "d1b85314f0d01ba1",
         "type": "inject",
-        "z": "fc55bde326a8f1c8",
-        "name": "",
+        "z": "4f793d28442c2b27",
+        "name": "Get weather every 5 minutes",
         "props": [
             {
                 "p": "payload"
@@ -341,25 +323,25 @@
                 "vt": "str"
             }
         ],
-        "repeat": "600",
+        "repeat": "300",
         "crontab": "",
         "once": false,
         "onceDelay": "150",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 250,
-        "y": 880,
+        "x": 170,
+        "y": 700,
         "wires": [
             [
-                "01b4cd72f07a0475"
+                "e845c766571d488c"
             ]
         ]
     },
     {
-        "id": "6cf03064c287c514",
+        "id": "bb2e983a3fef94e7",
         "type": "function",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "WeatherMqttFormat",
         "func": "msg.payload = {\"subtopic\": \"weather\", \"data\": msg.payload.current}\nreturn msg;",
         "outputs": 1,
@@ -368,18 +350,19 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 880,
+        "x": 700,
+        "y": 700,
         "wires": [
             [
-                "2961343724942a8a"
+                "e2b3497949f7ba39",
+                "52ba04a506128cd2"
             ]
         ]
     },
     {
-        "id": "1925dd2278d93bfe",
+        "id": "011aa4b3a5fbe966",
         "type": "debug",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
@@ -388,30 +371,30 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 460,
+        "x": 500,
+        "y": 300,
         "wires": []
     },
     {
-        "id": "e6945798e98be9ca",
+        "id": "1cf2659616d7f1a0",
         "type": "totaliser",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "output": "sum",
         "interval": "5",
         "intervalUnits": "hours",
         "name": "ReadWaterFlow",
-        "x": 540,
-        "y": 580,
+        "x": 380,
+        "y": 420,
         "wires": [
             [
-                "9427245fdc075cda"
+                "ec253d7072196ec9"
             ]
         ]
     },
     {
-        "id": "9427245fdc075cda",
+        "id": "ec253d7072196ec9",
         "type": "function",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "WaterRateMqttFormat",
         "func": "msg.payload.total = (msg.payload.total * 60) / 5.5;\nreturn msg;",
         "outputs": 1,
@@ -420,18 +403,18 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 820,
-        "y": 580,
+        "x": 660,
+        "y": 420,
         "wires": [
             [
-                "ba528e67b67c374e"
+                "4eb6fe5789537a2b"
             ]
         ]
     },
     {
-        "id": "bdff75e054dbf562",
+        "id": "c7b6d7e6eec8f7e8",
         "type": "inject",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "sunny test",
         "props": [
             {
@@ -450,17 +433,17 @@
         "payload": "{\"subtopic\":\"weather\", \"data\":{\"is_day\":1, \"rain\": 0, \"cloud_cover\": 0}}",
         "payloadType": "json",
         "x": 1020,
-        "y": 740,
+        "y": 560,
         "wires": [
             [
-                "2961343724942a8a"
+                "e2b3497949f7ba39"
             ]
         ]
     },
     {
-        "id": "ab76aa1786690ab1",
+        "id": "7249451485e68d08",
         "type": "inject",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "clouddy test",
         "props": [
             {
@@ -479,17 +462,17 @@
         "payload": "{\"subtopic\":\"weather\", \"data\":{\"is_day\":1, \"rain\": 0, \"cloud_cover\": 11}}",
         "payloadType": "json",
         "x": 1030,
-        "y": 780,
+        "y": 600,
         "wires": [
             [
-                "2961343724942a8a"
+                "e2b3497949f7ba39"
             ]
         ]
     },
     {
-        "id": "467020942257f4fd",
+        "id": "df11517afeb82c4a",
         "type": "inject",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "rain test",
         "props": [
             {
@@ -508,17 +491,17 @@
         "payload": "{\"subtopic\":\"weather\", \"data\":{\"is_day\":0, \"rain\": 5, \"cloud_cover\": 100}}",
         "payloadType": "json",
         "x": 1010,
-        "y": 700,
+        "y": 520,
         "wires": [
             [
-                "2961343724942a8a"
+                "e2b3497949f7ba39"
             ]
         ]
     },
     {
-        "id": "cd51a718ee12914a",
+        "id": "93c0b5b360a0fa25",
         "type": "mqtt out",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "sensor publisher",
         "topic": "sensor",
         "qos": "",
@@ -529,14 +512,14 @@
         "correl": "",
         "expiry": "",
         "broker": "7e3c5637d1c2a2cc",
-        "x": 760,
-        "y": 1040,
+        "x": 640,
+        "y": 900,
         "wires": []
     },
     {
-        "id": "ba528e67b67c374e",
+        "id": "4eb6fe5789537a2b",
         "type": "mqtt out",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "water publisher",
         "topic": "water",
         "qos": "",
@@ -547,70 +530,14 @@
         "correl": "",
         "expiry": "",
         "broker": "7e3c5637d1c2a2cc",
-        "x": 1100,
-        "y": 580,
+        "x": 940,
+        "y": 420,
         "wires": []
     },
     {
-        "id": "cd1d8d65938bc39a",
-        "type": "rpi-gpio in",
-        "z": "fc55bde326a8f1c8",
-        "name": "Sunlight Sensor",
-        "pin": "",
-        "intype": "tri",
-        "debounce": "25",
-        "read": false,
-        "bcm": true,
-        "x": 440,
-        "y": 760,
-        "wires": [
-            [
-                "4ea6a588e0896b17"
-            ]
-        ]
-    },
-    {
-        "id": "44e53880402ccff2",
-        "type": "rpi-gpio in",
-        "z": "fc55bde326a8f1c8",
-        "name": "Humidity Sensor",
-        "pin": "",
-        "intype": "tri",
-        "debounce": "25",
-        "read": false,
-        "bcm": true,
-        "x": 440,
-        "y": 700,
-        "wires": [
-            [
-                "2a9d3556cc7e8f95"
-            ]
-        ]
-    },
-    {
-        "id": "e2209a3f8d82e934",
+        "id": "d8a779a787bd3465",
         "type": "function",
-        "z": "fc55bde326a8f1c8",
-        "name": "TemperatureMqttFormat",
-        "func": "msg.payload = {\"subtopic\": \"temperature\", \"data\": msg.payload}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
-        "y": 820,
-        "wires": [
-            [
-                "2961343724942a8a"
-            ]
-        ]
-    },
-    {
-        "id": "4ea6a588e0896b17",
-        "type": "function",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "SunlightMqttFormat",
         "func": "msg.payload = { \"subtopic\": \"sunlight\", \"data\": msg.payload }\nreturn msg;",
         "outputs": 1,
@@ -619,18 +546,19 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 760,
+        "x": 690,
+        "y": 640,
         "wires": [
             [
-                "2961343724942a8a"
+                "e2b3497949f7ba39",
+                "52ba04a506128cd2"
             ]
         ]
     },
     {
-        "id": "2a9d3556cc7e8f95",
+        "id": "30d1b5d67b6c57f5",
         "type": "function",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "HumidityMqttFormat",
         "func": "msg.payload = { \"subtopic\": \"humidity\", \"data\": msg.payload }\nreturn msg;",
         "outputs": 1,
@@ -639,28 +567,29 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 700,
+        "x": 760,
+        "y": 580,
         "wires": [
             [
-                "2961343724942a8a"
+                "e2b3497949f7ba39",
+                "52ba04a506128cd2"
             ]
         ]
     },
     {
-        "id": "9cfa718cfd95de4f",
+        "id": "a9dd98ce10acaa56",
         "type": "comment",
-        "z": "fc55bde326a8f1c8",
-        "name": "weather test",
+        "z": "4f793d28442c2b27",
+        "name": "Weather information",
         "info": "",
-        "x": 990,
-        "y": 660,
+        "x": 110,
+        "y": 520,
         "wires": []
     },
     {
-        "id": "24e466f774e09204",
+        "id": "6afa200ea491754e",
         "type": "inject",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Close Solenoid Test",
         "props": [
             {
@@ -674,18 +603,18 @@
         "topic": "",
         "payload": "0",
         "payloadType": "num",
-        "x": 850,
-        "y": 240,
+        "x": 630,
+        "y": 80,
         "wires": [
             [
-                "8540e893fd4f8238"
+                "ee78e6059a139b24"
             ]
         ]
     },
     {
-        "id": "46989afeef54bd3d",
+        "id": "54489a902578eaf9",
         "type": "inject",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Water Rate Test",
         "props": [
             {
@@ -699,18 +628,18 @@
         "topic": "",
         "payload": "{ \"delta\":90, \"unit\":\"L/min\" }",
         "payloadType": "json",
-        "x": 840,
-        "y": 540,
+        "x": 680,
+        "y": 380,
         "wires": [
             [
-                "ba528e67b67c374e"
+                "4eb6fe5789537a2b"
             ]
         ]
     },
     {
-        "id": "d59a1993ce38f2e1",
+        "id": "90eddd2ccfe39906",
         "type": "inject",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "Sensor Group Test",
         "props": [
             {
@@ -724,18 +653,18 @@
         "topic": "",
         "payload": "{\"subtopic\": \"soilmonitor\", \"data\": {\"sensor1\":10, \"sensor2\":21, \"sensor3\":12, \"sensor4\":32 }}",
         "payloadType": "json",
-        "x": 530,
-        "y": 980,
+        "x": 390,
+        "y": 820,
         "wires": [
             [
-                "cd51a718ee12914a"
+                "93c0b5b360a0fa25"
             ]
         ]
     },
     {
-        "id": "343f7da7dc405544",
+        "id": "24498ec8f7d6912d",
         "type": "inject",
-        "z": "fc55bde326a8f1c8",
+        "z": "4f793d28442c2b27",
         "name": "night test",
         "props": [
             {
@@ -754,10 +683,134 @@
         "payload": "{\"subtopic\":\"weather\", \"data\":{\"is_day\":0, \"rain\": 0, \"cloud_cover\": 100}}",
         "payloadType": "json",
         "x": 1020,
-        "y": 820,
+        "y": 640,
         "wires": [
             [
-                "2961343724942a8a"
+                "e2b3497949f7ba39"
+            ]
+        ]
+    },
+    {
+        "id": "b8e9081f7f0c0bc7",
+        "type": "function",
+        "z": "4f793d28442c2b27",
+        "name": "SensorMqttFormat",
+        "func": "msg.payload = {\"subtopic\": \"weather\", \"data\": msg.payload.current}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 900,
+        "wires": [
+            [
+                "93c0b5b360a0fa25"
+            ]
+        ]
+    },
+    {
+        "id": "52ba04a506128cd2",
+        "type": "debug",
+        "z": "4f793d28442c2b27",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "a11998c3d4b25d60",
+        "type": "i2c scan",
+        "z": "4f793d28442c2b27",
+        "name": "BME280",
+        "busno": "2",
+        "x": 540,
+        "y": 580,
+        "wires": [
+            [
+                "30d1b5d67b6c57f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5c794e21d8dea803",
+        "type": "inject",
+        "z": "4f793d28442c2b27",
+        "name": "Get temperature, humidity, pressure every 5 minutes",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "150",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 580,
+        "wires": [
+            [
+                "a11998c3d4b25d60"
+            ]
+        ]
+    },
+    {
+        "id": "b715d802081cedde",
+        "type": "i2c scan",
+        "z": "4f793d28442c2b27",
+        "name": "Sunlight",
+        "busno": "1",
+        "x": 440,
+        "y": 640,
+        "wires": [
+            [
+                "d8a779a787bd3465"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "52399cb8c7bfa448",
+        "type": "inject",
+        "z": "4f793d28442c2b27",
+        "name": "Get sunlight every 5 minutes",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "150",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 640,
+        "wires": [
+            [
+                "b715d802081cedde"
             ]
         ]
     },

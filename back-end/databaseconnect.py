@@ -24,7 +24,7 @@ def create_connection():
 
 # Get records for all 8 analog sensors mesuring soil moisture and temperature
 @app.route('/soil-sensors', methods=['GET'])
-def get_users():
+def soil_sensors():
     connection = create_connection()
     cursor = connection.cursor(dictionary=True)
     cursor.execute("SELECT * FROM soil_sensors")
@@ -36,7 +36,7 @@ def get_users():
 
 # Get water flow rate history
 @app.route('/water-meter', methods=['GET'])
-def get_users():
+def water_meter():
     connection = create_connection()
     cursor = connection.cursor(dictionary=True)
     cursor.execute("SELECT * FROM water_meter")
@@ -48,7 +48,7 @@ def get_users():
 
 # Get records for all digital sensors mesuring ambient temperature, humidity, atmospheric pressure and sunlight rate.
 @app.route('/ambient-sensors', methods=['GET'])
-def get_users():
+def ambient_sensors():
     connection = create_connection()
     cursor = connection.cursor(dictionary=True)
     cursor.execute("SELECT * FROM ambient_sensors")

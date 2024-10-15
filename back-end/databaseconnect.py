@@ -29,7 +29,6 @@ def create_connection():
 def ping():
     connection = create_connection()
     connection.close()
-    
     return jsonify("pong")
 
 # Get records for all 8 analog sensors mesuring soil moisture and temperature
@@ -39,11 +38,11 @@ def soil_sensors():
     connection = create_connection()
     cursor = connection.cursor(dictionary=True)
     cursor.execute("SELECT * FROM soil_sensors")
-    users = cursor.fetchall()
+    data = cursor.fetchall()
     cursor.close()
     connection.close()
 
-    return jsonify(users)
+    return jsonify(data)
 
 # Get water flow rate history
 @cross_origin()
@@ -52,11 +51,11 @@ def water_meter():
     connection = create_connection()
     cursor = connection.cursor(dictionary=True)
     cursor.execute("SELECT * FROM water_meter")
-    users = cursor.fetchall()
+    data = cursor.fetchall()
     cursor.close()
     connection.close()
 
-    return jsonify(users)
+    return jsonify(data)
 
 # Get records for all digital sensors mesuring ambient temperature, humidity, atmospheric pressure and sunlight rate.
 @cross_origin()
@@ -65,11 +64,11 @@ def ambient_sensors():
     connection = create_connection()
     cursor = connection.cursor(dictionary=True)
     cursor.execute("SELECT * FROM ambient_sensors")
-    users = cursor.fetchall()
+    data = cursor.fetchall()
     cursor.close()
     connection.close()
 
-    return jsonify(users)
+    return jsonify(data)
 
 # Run the Flask app
 if __name__ == '__main__':

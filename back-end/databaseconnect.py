@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, request
 import mysql.connector
 from mysql.connector import Error
+from flask_cors import CORS, cross_origin
 
 # Initialize the Flask application
 app = Flask(__name__)
+CORS(app)
 
 # MySQL connection configuration
 def create_connection():
@@ -19,10 +21,19 @@ def create_connection():
             print("Connected to MySQL database")
     except Error as e:
         print(f"Error while connecting to MySQL: {e}")
-    
+
     return connection
 
+@cross_origin()
+@app.route('/ping', methods=['GET'])
+def ping():
+    connection = create_connection()
+    connection.close()
+    
+    return jsonify("pong")
+
 # Get records for all 8 analog sensors mesuring soil moisture and temperature
+@cross_origin()
 @app.route('/soil-sensors', methods=['GET'])
 def soil_sensors():
     connection = create_connection()
@@ -31,10 +42,11 @@ def soil_sensors():
     users = cursor.fetchall()
     cursor.close()
     connection.close()
-    
+
     return jsonify(users)
 
 # Get water flow rate history
+@cross_origin()
 @app.route('/water-meter', methods=['GET'])
 def water_meter():
     connection = create_connection()
@@ -43,10 +55,11 @@ def water_meter():
     users = cursor.fetchall()
     cursor.close()
     connection.close()
-    
+
     return jsonify(users)
 
 # Get records for all digital sensors mesuring ambient temperature, humidity, atmospheric pressure and sunlight rate.
+@cross_origin()
 @app.route('/ambient-sensors', methods=['GET'])
 def ambient_sensors():
     connection = create_connection()
@@ -55,9 +68,9 @@ def ambient_sensors():
     users = cursor.fetchall()
     cursor.close()
     connection.close()
-    
+
     return jsonify(users)
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)

@@ -57,6 +57,22 @@ def water_meter():
 
     return jsonify(data)
 
+# Get water flow rate history
+@cross_origin()
+@app.route('/water-meter-from', methods=['GET'])
+def water_meter_from():
+    param = request.args.get('range')
+    connection = create_connection()
+    cursor = connection.cursor(dictionary=True)
+    query = "SELECT * FROM water_meter order by time desc limit " + param
+    cursor.execute(query)
+    data = cursor.fetchall()
+    cursor.close()
+    connection.close()
+    result = {"rate": [item["rate"] for item in data], "time": [item["time"] for item in data]}
+
+    return jsonify(result)
+
 # Get records for all digital sensors mesuring ambient temperature, humidity, atmospheric pressure and sunlight rate.
 @cross_origin()
 @app.route('/ambient-sensors', methods=['GET'])
